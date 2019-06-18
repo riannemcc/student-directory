@@ -21,18 +21,22 @@ end
   puts "The students of Villains Academy"
   puts "____________"
 end
+
 def print(students)
-  students.each do |student|
+    students.each do |student|
     puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
-end
-end
 
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 #nothing happens until we call the methods
 students = input_students
+while students.empty? do
+  puts "Please enter a name"
+  students = input_students
+end
 print_header
 print(students)
 print_footer(students)
