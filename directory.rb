@@ -22,15 +22,27 @@ def input_students
   students
 end
 
-  def print_header
+def print_header
   puts "The students of Villains Academy"
   puts "____________"
 end
+
 def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
-  end
+  students_by_cohort = {}
+  students.each do |person|
+    cohort = person[:cohort]
+
+    if students_by_cohort[cohort] == nil
+     students_by_cohort[cohort] = []
+    end
+  students_by_cohort[cohort].push(person[:name])
 end
+puts students_by_cohort.flatten
+    #students.each do |student|
+    #puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  #end
+end
+
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
