@@ -22,11 +22,10 @@ end
   puts "____________"
 end
 def print(students)
-  students.each do |student|
-    if student [:name].chr == "A"
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  students.each_with_index do |student, index|
+    #if student [:name].chr == "A"
+    puts "#{index + 1} . #{student[:name]} (#{student[:cohort]} cohort)"
   end
-end
 end
 
 def print_footer(students)
