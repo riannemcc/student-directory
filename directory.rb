@@ -3,8 +3,8 @@
 def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
-  puts "3. Save the list to students.csv"
-  puts "4. Load the list from students.csv"
+  puts "3. Save the list to a file"
+  puts "4. Load the list from a file"
   puts "9. Exit" # because we'll be adding more items
 end
 
@@ -25,10 +25,14 @@ def process(selection)
       puts "You are exiting the program"
       exit
     when "3"
-      save_students
+      puts "Please give me a file name"
+      user_filename = gets.chomp
+      save_students(user_filename)
       puts "Saving list of students"
     when "4"
-      load_students
+      puts "Please enter file you wish to load"
+      user_filename = gets.chomp
+      load_students(user_filename)
       puts "Loading list of students"
   else
     puts "I don't know what you mean, try again"
@@ -71,9 +75,9 @@ def print_footer
   puts "Overall, we have #{@students.count} great students"
 end
 
-def save_students
+def save_students(user_filename)
   # open the file for writing
-  file = File.open("students.csv", "w")
+  file = File.open(user_filename, "w")
   # iterate over the array of students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
