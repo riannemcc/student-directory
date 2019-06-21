@@ -22,11 +22,14 @@ def process(selection)
     when "2"
       show_students
     when "9"
+      puts "You are exiting the program"
       exit
     when "3"
       save_students
+      puts "Saving list of students"
     when "4"
       load_students
+      puts "Loading list of students"
   else
     puts "I don't know what you mean, try again"
   end
